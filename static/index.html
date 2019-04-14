@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app" >
+    <!--插值表达式-->
+    <p>{{msg}}</p>
+    <p>{{ 1>2 ? 'true' : 'false'}}</p>
+    <!--vue指令-->
+    <p v-text="text"></p>
+    <p v-if = 'isShow'>yyy</p>
+    <p v-else="">xxx</p>
+    <p v-show="false">ooo</p>
+    <table>
+      <tr v-for="item in studentList">
+        <td>{{item.id}} </td>
+        <td>{{item.age}} </td>
+        <td>{{item.name}} </td>
+      </tr>
+    </table>
+
+    <button @click = "change">点击</button>
+  </div>
+
+
+</body>
+  <script type="text/javascript">
+    new Vue({
+      el:'#app',
+      // template:'<div >{{msg}}</div>',
+      template:'',
+      data:function () {
+        return {
+          msg:'hello word',
+          text:'啦啦啦',
+          isShow:true,
+          studentList:[
+            {id:1, age: 18, name: '小明'},
+            {id:2, age: 15, name: '小张'},
+            {id:3, age: 16, name: '小王'},
+          ]
+        }
+      },
+      methods:{
+        change(){
+          this.isShow = !this.isShow;
+        }
+      }
+    })
+  </script>
+</html>
